@@ -53,4 +53,9 @@ nav > img {
   border: none;
   cursor: pointer;
   font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.memeImg {
+  max-width: 100%;
 }
