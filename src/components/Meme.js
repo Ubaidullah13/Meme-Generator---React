@@ -1,9 +1,8 @@
 import React from "react"
-import memesData from "../memesData.js"
 import defaultImg from "../images/memeimg.png"
 export default function Meme() {
 
-    const [memeImgs, setMemeImgs] = React.useState(memesData);
+    const [memeImgs, setMemeImgs] = React.useState([]);
     const [meme, setMeme] = React.useState({
         topText: "SHUT UP",
         bottomText: "AND TAKE MY MONEY",
@@ -32,8 +31,11 @@ export default function Meme() {
         })   
     }
 
-    console.log(meme.topText, meme.bottomText);
-
+    React.useEffect( () => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setMemeImgs(data))
+    },[])
 
     return (
         <main>
